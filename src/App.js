@@ -1,14 +1,14 @@
 import React, { Component} from 'react';
 import './App.css';
-import Todos from './components/Todos';
+import TodoList from './components/TodoList';
 
 // A class definition that extends react.Component
 class App extends Component {
   // Data for App class
   // State is a js object
   state = {
-    // Var with name todos that is an array of objects
-    todos: [
+    // Var with name values that is an array of objects
+    values: [
       {
         id: 1,
         title: 'Take out the trash',
@@ -32,11 +32,11 @@ class App extends Component {
     console.log(id)
 
     // flip value at id
-    this.setState({ todos: this.state.todos.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed
+    this.setState({ values: this.state.values.map(item => {
+      if (item.id === id) {
+        item.completed = !item.completed
       }
-      return todo;
+      return item;
     }) });
   }
 
@@ -44,11 +44,11 @@ class App extends Component {
   // rendering an app involves a Todo object
   // with an items argument as the App state
   render() {
-    console.log(this.state.todos)
+    console.log(this.state.values)
     return (
       <div className="App">
         <h1>Hello World!</h1>
-        <Todos items={this.state.todos} markComplete={this.markComplete}/>
+        <TodoList items={this.state.values} markComplete={this.markComplete}/>
       </div>
     );
   }
