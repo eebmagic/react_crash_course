@@ -14,7 +14,7 @@ class Todos extends Component {
         // console.log(this.props.items);
         // This is a for-each loop through items
         return this.props.items.map((todo) => (
-            <TodoItem key={todo.id} args={todo}/>
+            <TodoItem key={todo.id} args={todo} markComplete={this.props.markComplete}/>
         ));
     }
 }

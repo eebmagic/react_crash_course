@@ -27,6 +27,10 @@ class App extends Component {
     ]
   }
 
+  markComplete = () => {
+    console.log('Hello from App.js')
+  }
+
   // How the data of App is rendered and returned to the index.html
   // rendering an app involves a Todo object
   // with an items argument as the App state
@@ -35,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hello World!</h1>
-        <Todos items={this.state.todos}/>
+        <Todos items={this.state.todos} markComplete={this.markComplete}/>
       </div>
     );
   }
