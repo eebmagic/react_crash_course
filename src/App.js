@@ -27,8 +27,17 @@ class App extends Component {
     ]
   }
 
-  markComplete = () => {
+  markComplete = (id) => {
     console.log('Hello from App.js')
+    console.log(id)
+
+    // flip value at id
+    this.setState({ todos: this.state.todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo;
+    }) });
   }
 
   // How the data of App is rendered and returned to the index.html

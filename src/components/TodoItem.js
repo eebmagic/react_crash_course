@@ -13,17 +13,13 @@ class TodoItem extends Component {
         }
     }
 
-    // markComplete = (e) => {
-    //     // Set args.completed to be correct value
-    //     console.log('checkbox was flipped')
-    //     console.log(this.props)
-    // }
-
     render() {
+        const { id, title } = this.props.args;
         return (
             <div style={this.getStyle()}>
-                <input type="checkbox" onChange={this.props.markComplete}/> {' '}
-                {this.props.args.id} - {this.props.args.title}
+                <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}
+                checked={this.props.args.completed}/> {' '}
+                {id} - {title}
             </div>
         )
     }
